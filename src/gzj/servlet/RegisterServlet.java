@@ -14,13 +14,19 @@ public class RegisterServlet extends HttpServlet {
 	private static final long serialVersionUID = 4990061731637159869L;
 
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		doPost(req, resp);
 	}
 
 	@Override
-	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	public void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setCharacterEncoding("utf-8");
-		
+		System.out.println(123);
+		String mail = req.getParameter("mail");
+		System.out.println(mail);
+		String passwd = req.getParameter("passwd");
+		System.out.println(passwd);
+		String passwder = req.getParameter("passwder");
+		System.out.println(passwder);
 	}
 }

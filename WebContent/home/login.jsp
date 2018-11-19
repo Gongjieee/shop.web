@@ -24,7 +24,7 @@
 				<h3 class="title">登录商城</h3>
 				<div class="clear"></div>
 			<div class="login-form">
-			  <form>
+<form method="post">
 				   <div class="user-name">
 					    <label for="user"><i class="am-icon-user"></i></label>
 					    <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
@@ -33,7 +33,7 @@
 					<label for="password"><i class="am-icon-lock"></i></label>
 					<input type="password" name="" id="password" placeholder="请输入密码">
                  </div>
-              </form>
+</form>
            </div>
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
@@ -58,7 +58,7 @@
 		<div class="footer ">
 						<div class="footer-hd ">
 							<p>
-								<a href="# ">dijkstra</a>
+								<a href="# ">十点十分</a>
 								<b>|</b>
 								<a href="# ">商城首页</a>
 								<b>|</b>
@@ -69,10 +69,10 @@
 						</div>
 						<div class="footer-bd ">
 							<p>
-								<a href="# ">好好学习</a>
-								<a href="# ">天天向上</a>
-								<a href="# ">不吃零食</a>
-								<a href="# ">不搞对象</a>
+								<a href="# ">半工半读</a>
+								<a href="# ">胜多负少</a>
+								<a href="# ">热热威威</a>
+								<a href="# ">而又热舞</a>
 								<em>© 2018-2025 annyroom.top 版权所有. 欲与天公试比高 - Collect from <a href="#" target="_blank">欲上天宫揽明月</a></em>
 							</p>
 						</div>

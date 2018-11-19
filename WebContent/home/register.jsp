@@ -35,7 +35,7 @@
 				   <div class="user-email">
 					<label for="email"><i class="am-icon-envelope-o"></i></label>
 					<input type="email" name="mail" id="email" placeholder="请输入邮箱账号">
-                 </div>										
+                 </div>
                  <div class="user-pass">
 				    <label for="password"><i class="am-icon-lock"></i></label>
 				    <input type="password" name="passwd" id="password" placeholder="设置密码">
@@ -43,15 +43,15 @@
                  <div class="user-pass">
 				    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
 				    <input type="password" name="passwder" id="passwordRepeat" placeholder="确认密码">
-                 </div>	<span id="123"></span>
+                 </div>	<span id="123" style="color: red;font: 12px;"></span>
    	</form>
 				 <div class="login-links">
 						<label for="reader-me">
-							<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+							<input id="reader-me" type="checkbox" checked="checked"> 点击表示您同意商城《服务协议》
 						</label>
 			  	</div>
 				<div class="am-cf">
-					<input type="submit" name="" value="注册"  id="sub"
+					<input type="submit" value="注册"  id="sub"
 					class="am-btn am-btn-primary am-btn-sm am-fl">
 				</div>
 				</div>
@@ -75,11 +75,11 @@
                  <div class="user-pass">
 				    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
 				    <input type="password" name="passwdder" id="passwordRepeat" placeholder="确认密码">
-                 </div>	<span id="1234"></span>
+                 </div>	<span id="1234" style="color: red;font: 12px;"></span>
 </form>
 				 <div class="login-links">
 						<label for="reader-me">
-							<input id="reader-me" type="checkbox"> 点击表示您同意商城《服务协议》
+							<input id="reader-me" type="checkbox" checked="checked"> 点击表示您同意商城《服务协议》
 						</label>
 			  	</div>
 					<div class="am-cf">
@@ -96,11 +96,12 @@
 				    	    var pwd = $("input[name='passwd']").val();
 				    	    var cpwd = $("input[name='passwder']").val();
 				    	    if(pwd != cpwd){
-				    			$('#123').html("<span style=\"color=red;\">两次密码不一致!</span>");
+				    			$('#123').html("两次密码不一致!");
 					    	    $("input[name='passwder']").val("");
 					    		return false;
 				    	    }
 				    		$('#123').html("");
+				    		$("form:first").submit();
 			    	    });
 					    $('#subb').click(function(){
 				    	    var pwd = $("input[name='passwdd']").val();
@@ -111,6 +112,7 @@
 					    		return false;
 				    	    }
 				    		$('#1234').html("");
+				    		$("form:last").submit();
 			    	    });
 					  })
 				</script>
