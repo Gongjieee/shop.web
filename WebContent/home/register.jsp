@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctxPath" value="${pageContext.request.contextPath}" scope="session"></c:set>
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -31,7 +33,7 @@
 					</ul>
 				<div class="am-tabs-bd">
 					<div class="am-tab-panel am-active">
-	<form action="register.do" method="post">
+	<form action="${ctxPath}/register.do" method="post">
 				   <div class="user-email">
 					<label for="email"><i class="am-icon-envelope-o"></i></label>
 					<input type="email" name="mail" id="email" placeholder="请输入邮箱账号">
@@ -56,11 +58,12 @@
 				</div>
 				</div>
 				<div class="am-tab-panel">
-<form action="register.do" method="post">
+<form action="${ctxPath}/register.do" method="post">
+				<input >
                  <div class="user-phone">
 				    <label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
 				    <input type="tel" name="telenum" id="phone" placeholder="请输入手机号">
-                 </div>																			
+                 </div>
 				<div class="verification">
 					<label for="code"><i class="am-icon-code-fork"></i></label>
 					<input type="tel" name="" id="code" placeholder="请输入验证码">
@@ -83,7 +86,7 @@
 						</label>
 			  	</div>
 					<div class="am-cf">
-						<input type="submit" name="" value="注册" id="subb"
+						<input type="submit" value="注册" id="subb"
 						class="am-btn am-btn-primary am-btn-sm am-fl">
 					</div>
 			
