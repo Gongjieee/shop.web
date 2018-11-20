@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctxPath" value="${pageContext.request.contextPath}" scope="session"></c:set>
 <!DOCTYPE html>
 <html>
 	<head lang="en">
@@ -10,6 +12,7 @@
 		<meta name="format-detection" content="telephone=no">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
+		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<link rel="stylesheet" href="../AmazeUI-2.4.2/assets/css/amazeui.css" />
 		<link href="../css/dlstyle.css" rel="stylesheet" type="text/css">
 	</head>
@@ -24,17 +27,18 @@
 				<h3 class="title">登录商城</h3>
 				<div class="clear"></div>
 			<div class="login-form">
-<form method="post">
+<form action="${ctxPath}/login.do" method="post">
+					<input name="mn" type="hidden" value="login">
 				   <div class="user-name">
 					    <label for="user"><i class="am-icon-user"></i></label>
-					    <input type="text" name="" id="user" placeholder="邮箱/手机/用户名">
+					    <input type="text" name="name" id="user" placeholder="邮箱/手机/用户名">
                  </div>
                  <div class="user-pass">
 					<label for="password"><i class="am-icon-lock"></i></label>
-					<input type="password" name="" id="password" placeholder="请输入密码">
+					<input type="password" name="pass" id="password" placeholder="请输入密码">
                  </div>
 </form>
-           </div>
+           </div><span id="1234" style="color: red;font: 12px;"></span>
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
 				<a href="#" class="am-fr">忘记密码</a>
@@ -42,7 +46,7 @@
 				<br />
             </div>
 			<div class="am-cf">
-				<input type="submit" name="" value="登 录" class="am-btn am-btn-primary am-btn-sm">
+				<input type="submit" id="sub" value="登 录" class="am-btn am-btn-primary am-btn-sm">
 			</div>
 			<div class="partner">		
 					<h3>合作账号</h3>
@@ -77,6 +81,21 @@
 							</p>
 						</div>
 					</div>
+	<script>
+				$(function() {
+				    $('#sub').click(function(){
+				    	var pwd = $("input[name='pass']").val();
+			    		var name = $("input[name='name']").val();
+			    		var pattern = new RegExp(/^[\w_-]{6,16}$/);
+			    		if(!pattern.test(pwd)){
+			    			$('#1234').html("密码长度大于6位!");
+			    			$("input[name='pass']").val("");
+				    		return false;
+			    		}
+			    		$("form:first").submit();
+		    	    });
+				  })
+			</script>
 	</body>
 
 </html>

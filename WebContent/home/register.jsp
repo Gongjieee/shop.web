@@ -34,13 +34,14 @@
 				<div class="am-tabs-bd">
 					<div class="am-tab-panel am-active">
 	<form action="${ctxPath}/register.do" method="post">
+					<input name="mn" type="hidden" value="email">
 				   <div class="user-email">
 					<label for="email"><i class="am-icon-envelope-o"></i></label>
-					<input type="email" name="mail" id="email" placeholder="请输入邮箱账号">
+					<input type="email" name="mail" value="" id="email" placeholder="请输入邮箱账号">
                  </div>
                  <div class="user-pass">
 				    <label for="password"><i class="am-icon-lock"></i></label>
-				    <input type="password" name="passwd" id="password" placeholder="设置密码">
+				    <input type="password" name="passwd" value="" id="password" placeholder="设置密码">
                  </div>										
                  <div class="user-pass">
 				    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
@@ -59,7 +60,7 @@
 				</div>
 				<div class="am-tab-panel">
 <form action="${ctxPath}/register.do" method="post">
-				<input >
+				<input name="mn" type="hidden" value="phone">
                  <div class="user-phone">
 				    <label for="phone"><i class="am-icon-mobile-phone am-icon-md"></i></label>
 				    <input type="tel" name="telenum" id="phone" placeholder="请输入手机号">
@@ -73,7 +74,7 @@
 				</div>
                  <div class="user-pass">
 				    <label for="password"><i class="am-icon-lock"></i></label>
-				    <input type="password" name="passwdd" id="password" placeholder="设置密码">
+				    <input type="password" name="passwdd" value="" id="password" placeholder="设置密码">
                  </div>										
                  <div class="user-pass">
 				    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
@@ -92,33 +93,55 @@
 			
 				<hr>
 			</div>
-				<script>
-					$(function() {
-					    $('#doc-my-tabs').tabs();
-					    $('#sub').click(function(){
-				    	    var pwd = $("input[name='passwd']").val();
-				    	    var cpwd = $("input[name='passwder']").val();
-				    	    if(pwd != cpwd){
-				    			$('#123').html("两次密码不一致!");
-					    	    $("input[name='passwder']").val("");
-					    		return false;
-				    	    }
-				    		$('#123').html("");
-				    		$("form:first").submit();
-			    	    });
-					    $('#subb').click(function(){
-				    	    var pwd = $("input[name='passwdd']").val();
-				    	    var cpwd = $("input[name='passwdder']").val();
-				    	    if(pwd != cpwd){
-				    			$('#1234').html("两次密码不一致!");
-					    	    $("input[name='passwdder']").val("");
-					    		return false;
-				    	    }
-				    		$('#1234').html("");
-				    		$("form:last").submit();
-			    	    });
-					  })
-				</script>
+			<script>
+				$(function() {
+				    $('#doc-my-tabs').tabs();
+				    $('#sub').click(function(){
+			    	    var pwd = $("input[name='passwd']").val();
+			    	    var cpwd = $("input[name='passwder']").val();
+			    		var name = $("input[name='mail']").val();
+			    		var reg=new RegExp(/^([a-zA-Z0-9._-])+@([a-zA-Z0-9_-])+(\.[a-zA-Z0-9_-])+/);
+			    		var pattern = new RegExp(/^[\w_-]{6,16}$/);
+			    		if(!reg.test(name)){
+			    			$('#123').html("邮箱格式不合法!");
+				    		return false;
+			    		}
+			    		if(!pattern.test(pwd)){
+			    			$('#123').html("密码长度大于6位!");
+				    		return false;
+			    		}
+			    	    if(pwd != cpwd){
+			    			$('#123').html("两次密码不一致!");
+				    	    $("input[name='passwder']").val("");
+				    		return false;
+			    	    }
+			    		$('#123').html("");
+			    		$("form:first").submit();
+		    	    });
+				    $('#subb').click(function(){
+			    	    var pwd = $("input[name='passwdd']").val();
+			    	    var cpwd = $("input[name='passwdder']").val();
+			    		var name = $("input[name='telenum']").val();
+				    	var reg=new RegExp(/^1[34578]\d{9}$/);
+			    		var pattern = new RegExp(/^[\w_-]{6,16}$/);
+			    		if(!reg.test(name)){
+			    			$('#1234').html("手机号格式不合法!");
+				    		return false;
+			    		}
+			    		if(!pattern.test(pwd)){
+			    			$('#1234').html("密码长度大于6位!");
+				    		return false;
+			    		}
+			    	    if(pwd != cpwd){
+			    			$('#1234').html("两次密码不一致!");
+				    	    $("input[name='passwdder']").val("");
+				    		return false;
+			    	    }
+			    		$('#1234').html("");
+			    		$("form:last").submit();
+		    	    });
+				  })
+			</script>
 
 			</div>
 		</div>

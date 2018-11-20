@@ -10,9 +10,9 @@ import com.alibaba.druid.pool.DruidDataSource;
 public class DbUtil {
 
 	private static DruidDataSource dds;		
-	private static String url= "jdbc:oracle:thin:@127.0.0.1:1521:orcl";
-	private static String driverClassName= "oracle.jdbc.driver.OracleDriver";
-	private static String username= "scott";
+	private static String url= "jdbc:mysql://localhost:3306/xtnbteam";
+	private static String driverClassName= "com.mysql.jdbc.Driver";
+	private static String username= "root";
 	private static String password= "root";
 	
 	static {
