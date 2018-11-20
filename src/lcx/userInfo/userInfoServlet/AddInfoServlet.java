@@ -23,10 +23,6 @@ public class AddInfoServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		UserInfo userInfo = (UserInfo)FormUtil.formToBean(request, UserInfo.class);
-		if(new UserInfoservice().addInfo(userInfo)) {//传输数据并返回数据
-			
-		}else {
-			System.out.println("添加数据出错！！！！！");
-		}
+		new UserInfoservice().addInfo(userInfo);
 	}
 }
