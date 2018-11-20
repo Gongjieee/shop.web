@@ -26,7 +26,7 @@ public class AddInfoServlet extends HttpServlet{
 		if(new UserInfoservice().addInfo(userInfo)) {//传输数据并返回数据
 			
 		}else {
-			System.out.println("修改数据出错！！！！！");
+			System.out.println("添加数据出错！！！！！");
 		}
 	}
 }

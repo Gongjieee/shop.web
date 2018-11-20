@@ -12,6 +12,7 @@ public class OrderItem {
 	private String detail;						//详细信息
 	private String phoneNumber;	//联系方式
 	private int orderStatus;				//订单状态
+	private int goodsNumber;       //商品数量
 	
 	public String getOrderId() {
 		return orderId;
@@ -72,5 +73,11 @@ public class OrderItem {
 	}
 	public void setOrderStatus(int orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+	public int getGoodsNumber() {
+		return goodsNumber;
+	}
+	public void setGoodsNumber(int goodsNumber) {
+		this.goodsNumber = goodsNumber;
 	}
 }

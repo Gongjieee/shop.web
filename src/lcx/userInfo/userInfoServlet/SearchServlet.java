@@ -11,25 +11,24 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import commen.utils.FormUtil;
 import lcx.userInfo.UserInfo;
 import lcx.userInfo.UserInfoservice;
 
 
-@WebServlet("/modifyUserInfo")
-public class ModifyUserInfoServlet extends HttpServlet {
+@WebServlet("/SearchServlet")
+public class SearchServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-    
-	List<UserInfo> list = null;
 	
+	List<UserInfo> list = null;
+   
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
-		UserInfo userInfo = (UserInfo)FormUtil.formToBean(request, UserInfo.class);
-		list  = new UserInfoservice().ModifyInfo(userInfo);
+		String userId =(String) request.getSession().getAttribute("userid");
+		list =  new UserInfoservice().searchUserInfoService(userId);
 		response.getWriter().write(new Gson().toJson(list));
 		response.getWriter().close();
 	}

@@ -1,7 +1,9 @@
 package lcx.userInfo;
 
 public class UserInfo {
-	
+	//关于地址的解释：
+	//地址序列：一个人的多个收货地址需要去 加一个特殊的数字去识别，否则无法使用
+	//默认收货地址：用0表示是默认收货地址，1表示不是默认收货地址
 	private String userId ;					//用户编号
 	private String receiptName;		//收货人
 	private String phoneNumber;	//联系方式
@@ -9,7 +11,14 @@ public class UserInfo {
 	private String city;							//市
 	private String country;					//县
 	private String detail;						//详细信息
-	private int defaultAddres;		//是否为默认地址
+	private int defaultAddres;		//地址序列
+	private int defaultAddressNum; //是否为默认收货地址
+	public int getDefaultAddressNum() {
+		return defaultAddressNum;
+	}
+	public void setDefaultAddressNum(int defaultAddressNum) {
+		this.defaultAddressNum = defaultAddressNum;
+	}
 	//下面是get和set方法
 	public String getUserId() {
 		return userId;
