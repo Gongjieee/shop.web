@@ -18,6 +18,18 @@
 		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="../AmazeUI-2.4.2/assets/js/amazeui.min.js"></script>
 	</head>
+	<style>
+		#csode{
+		padding:0px;
+				font-family:Arial;
+				font-style:italic;
+				font-size:20px;
+				font-weight:bold;
+				border:0;
+				letter-spacing:2px;
+				color:blue;
+			}
+	</style>
 	<body>
 		<div class="login-boxtitle">
 			<a href="home/demo.html"><img alt="" src="../images/logobig.png" /></a>
@@ -29,7 +41,7 @@
 				<div class="am-tabs" id="doc-my-tabs">
 					<ul class="am-tabs-nav am-nav am-nav-tabs am-nav-justify">
 						<li class="am-active"><a href="">邮箱注册</a></li>
-						<li><a href="">手机号注册</a></li>
+						<li onclick=createCode();><a href="">手机号注册</a></li>
 					</ul>
 				<div class="am-tabs-bd">
 					<div class="am-tab-panel am-active">
@@ -68,10 +80,9 @@
 				<div class="verification">
 					<label for="code"><i class="am-icon-code-fork"></i></label>
 					<input type="tel" name="yzm" id="code" placeholder="请输入验证码">
-					<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();"
-					id="sendMobileCode">
-						<span id="dyMobileButton"><img id="img" 
-					src="${ctxPath}/CaptchaServlet" onclick="refresh();" alt="点击更换验证码"/></span></a>
+						<span id="dyMobileButton">
+						<input type = "button" style="outline:none" id="csode"
+						 onclick="createCode()"/></span>
 				</div>
                  <div class="user-pass">
 				    <label for="password"><i class="am-icon-lock"></i></label>
@@ -95,9 +106,18 @@
 				<hr>
 			</div>
 			<script>
-				function refresh() {
-				    document.getElementById('img').src="${ctxPath}/CaptchaServlet?"+Math.random();
+			function createCode(){
+				 code = "";
+				 var codeLength = 4;//验证码的长度
+				 var checkCode = document.getElementById("csode");
+				 var random = new Array(0,1,2,3,4,5,6,7,8,9,'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R',
+				 'S','T','U','V','W','X','Y','Z');//随机数
+				 for(var i = 0; i < codeLength; i++) {//循环操作
+					var index = Math.floor(Math.random()*36);//取得随机数的索引（0~35）
+					code += random[index];//根据索引取得随机数加到code上
 				}
+				checkCode.value = code;//把code值赋给验证码
+			}
 				$(function() {
 				    $('#doc-my-tabs').tabs();
 				    $('#sub').click(function(){
@@ -123,26 +143,26 @@
 			    		$("form:first").submit();
 		    	    });
 				    $('#subb').click(function(){
-				    	$.ajax({
-							url:"${ctxPath}/register.do",
-							dataType:"JSON",
-							data:{yzm:$("input[name='yzm']").val()},
-							success:function(result){
-								alert(result);
-								var logindata = JSON.parse(result);
-								
-							}
-						});
 			    	    var pwd = $("input[name='passwdd']").val();
 			    	    var cpwd = $("input[name='passwdder']").val();
 			    		var name = $("input[name='telenum']").val();
-			    		var yzm = $("input[name='yzm']").val();
 				    	var reg=new RegExp(/^1[34578]\d{9}$/);
 			    		var pattern = new RegExp(/^[\w_-]{6,16}$/);
 			    		if(!reg.test(name)){
 			    			$('#1234').html("手机号格式不合法!");
 				    		return false;
 			    		}
+			    		var inputCode=$("input[name='yzm']").val().toUpperCase();
+						if(inputCode.length <= 0) { //若输入的验证码长度为0
+							$('#1234').html("请输入验证码！");
+							return false;
+						}       
+						else if(inputCode != code ) { //若输入的验证码与产生的验证码不一致时
+							$('#1234').html("验证码输入错误！");
+							createCode();//刷新验证码
+							$("input[name='yzm']").val("");//清空文本框
+							return false;
+						}
 			    		if(!pattern.test(pwd)){
 			    			$('#1234').html("密码长度大于6位!");
 				    		return false;
