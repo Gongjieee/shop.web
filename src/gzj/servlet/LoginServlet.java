@@ -29,12 +29,17 @@ public class LoginServlet extends BaseServlet {
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		List<Shop> s = rd.select(shop);
 		if(s.size()==0) {
-			System.out.println("没有用户");
+			req.setAttribute("loginRe", "无此手机号或邮箱，或者密码错误！");
+			try {
+				req.getRequestDispatcher("home/login.jsp").forward(req, resp);
+			} catch (ServletException e) {
+				e.printStackTrace();
+			}
 		}else {
 			Shop sd = s.get(0);
-			System.out.println("登陆邮箱："+sd.getMail());
-			System.out.println("登陆手机号："+sd.getPhone());
-			System.out.println("登陆ID："+sd.getUser_id());
+			req.getSession().setAttribute("", sd);
+			resp.sendRedirect("");//传入的jsp页面自己搞，在这修改后告诉我让我把数据下载下来防止冲突，
+								  //注意判断到底是邮箱登陆还是手机号登陆，若为邮箱登陆手机号为null，手机号登陆邮箱为null
 		}
 	}
 }

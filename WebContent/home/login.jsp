@@ -12,17 +12,17 @@
 		<meta name="format-detection" content="telephone=no">
 		<meta name="renderer" content="webkit">
 		<meta http-equiv="Cache-Control" content="no-siteapp" />
-		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<link rel="stylesheet" href="../AmazeUI-2.4.2/assets/css/amazeui.css" />
-		<link href="../css/dlstyle.css" rel="stylesheet" type="text/css">
+		<script src="${ctxPath}/AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
+		<link rel="stylesheet" href="${ctxPath}/AmazeUI-2.4.2/assets/css/amazeui.css" />
+		<link href="${ctxPath}/css/dlstyle.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<div class="login-boxtitle">
-			<a href="home.html"><img alt="logo" src="../images/logobig.png" /></a>
+			<a href="home.html"><img alt="logo" src="${ctxPath}/images/logobig.png" /></a>
 		</div>
 		<div class="login-banner">
 			<div class="login-main">
-				<div class="login-banner-bg"><span></span><img src="../images/big.jpg" /></div>
+				<div class="login-banner-bg"><span></span><img src="${ctxPath}/images/big.jpg" /></div>
 				<div class="login-box">
 				<h3 class="title">登录商城</h3>
 				<div class="clear"></div>
@@ -38,7 +38,7 @@
 					<input type="password" name="pass" id="password" placeholder="请输入密码">
                  </div>
 </form>
-           </div><span id="1234" style="color: red;font: 12px;"></span>
+           </div><span id="1234" style="color: red;font: 12px;"><c:out value="${loginRe}"></c:out></span>
             <div class="login-links">
                 <label for="remember-me"><input id="remember-me" type="checkbox">记住密码</label>
 				<a href="#" class="am-fr">忘记密码</a>

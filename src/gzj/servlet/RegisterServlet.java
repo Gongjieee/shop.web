@@ -55,6 +55,8 @@ public class RegisterServlet extends BaseServlet {
 		shop.setUser_id(id);
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		rd.addPhone(shop);
-		
+		req.getSession().setAttribute("", shop);
+		resp.sendRedirect("");//传入的jsp页面自己搞，在这修改后告诉我让我把数据下载下来防止冲突，
+							  //注意判断到底是邮箱注册还是手机号注册，若为邮箱注册手机号为null，手机号注册邮箱为null
 	}
 }
