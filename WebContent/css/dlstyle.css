@@ -64,8 +64,8 @@ input:-webkit-autofill { -webkit-box-shadow: 0 0 0px 1000px #fff inset;}
 
 /*注册*/
 .verification {position: relative;}
-input#code {width: 80%;}
-#dyMobileButton{margin-left: 10px;border: 1px solid #DDD;padding: 0px;width: 15%;height: 40px;background: #F4F4F4 none repeat scroll 0% 0%;margin-top: 0px;text-align: center;line-height:40px;color: #333;text-decoration: none;position: absolute;right: 0px;bottom: 0px;}
+input#code {width: 70%;}
+#dyMobileButton{margin-left: 0px;border: 1px solid #DDD;padding: 0px;width: 82px;height: 42px;background: #F4F4F4 none repeat scroll 0% 0%;margin-top: 0px;text-align: center;line-height:42px;color: #333;text-decoration: none;position: absolute;right: 0px;bottom: 0px;}
 
 
 /*修改的样式*/

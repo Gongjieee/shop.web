@@ -24,7 +24,7 @@ public class BaseServlet extends HttpServlet {
 			Method method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
 			method.invoke(this, request, response);
 		} catch (Exception e) {
-			throw new RuntimeException("ÕÒ²»µ½·½·¨");
+			throw new RuntimeException("ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		}
 	}
 }

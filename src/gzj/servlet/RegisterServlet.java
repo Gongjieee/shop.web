@@ -19,7 +19,7 @@ public class RegisterServlet extends BaseServlet {
 	private static final long serialVersionUID = 4990061731637159869L;
 
 	/**
-	 * ½ÓÊÜemail±íµ¥Ìá½»µÄÊý¾Ý
+	 * ï¿½ï¿½ï¿½ï¿½emailï¿½ï¿½ï¿½á½»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	 * @param req
 	 * @param resp
 	 * @throws ServletException
@@ -35,11 +35,13 @@ public class RegisterServlet extends BaseServlet {
 		shop.setUser_id(id);
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		rd.addMail(shop);
-		
+		req.getSession().setAttribute("", shop);
+		resp.sendRedirect("");//ï¿½ï¿½ï¿½ï¿½ï¿½jspÒ³ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Í»ï¿½ï¿½
+							  //×¢ï¿½ï¿½ï¿½Ð¶Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½á»¹ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½×¢ï¿½á£¬ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Îªnullï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªnull
 	}
 	
 	/**
-	 * ÊÖ»úºÅ×¢²á
+	 * ï¿½Ö»ï¿½ï¿½ï¿½×¢ï¿½ï¿½
 	 * @param req
 	 * @param resp
 	 * @throws ServletException
@@ -56,7 +58,7 @@ public class RegisterServlet extends BaseServlet {
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		rd.addPhone(shop);
 		req.getSession().setAttribute("", shop);
-		resp.sendRedirect("");//´«ÈëµÄjspÒ³Ãæ×Ô¼º¸ã£¬ÔÚÕâÐÞ¸Äºó¸æËßÎÒÈÃÎÒ°ÑÊý¾ÝÏÂÔØÏÂÀ´·ÀÖ¹³åÍ»£¬
-							  //×¢ÒâÅÐ¶Ïµ½µ×ÊÇÓÊÏä×¢²á»¹ÊÇÊÖ»úºÅ×¢²á£¬ÈôÎªÓÊÏä×¢²áÊÖ»úºÅÎªnull£¬ÊÖ»úºÅ×¢²áÓÊÏäÎªnull
+		resp.sendRedirect("");//ï¿½ï¿½ï¿½ï¿½ï¿½jspÒ³ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ã£¬ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸Äºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö¹ï¿½ï¿½Í»ï¿½ï¿½
+							  //×¢ï¿½ï¿½ï¿½Ð¶Ïµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¢ï¿½á»¹ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½×¢ï¿½á£¬ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Îªnullï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½×¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªnull
 	}
 }

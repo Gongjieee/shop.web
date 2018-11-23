@@ -67,15 +67,16 @@
                  </div>
 				<div class="verification">
 					<label for="code"><i class="am-icon-code-fork"></i></label>
-					<input type="tel" name="" id="code" placeholder="请输入验证码">
+					<input type="tel" name="yzm" id="code" placeholder="请输入验证码">
 					<a class="btn" href="javascript:void(0);" onclick="sendMobileCode();"
 					id="sendMobileCode">
-						<span id="dyMobileButton">获取</span></a>
+						<span id="dyMobileButton"><img id="img" 
+					src="${ctxPath}/CaptchaServlet" onclick="refresh();" alt="点击更换验证码"/></span></a>
 				</div>
                  <div class="user-pass">
 				    <label for="password"><i class="am-icon-lock"></i></label>
 				    <input type="password" name="passwdd" value="" id="password" placeholder="设置密码">
-                 </div>										
+                 </div>
                  <div class="user-pass">
 				    <label for="passwordRepeat"><i class="am-icon-lock"></i></label>
 				    <input type="password" name="passwdder" id="passwordRepeat" placeholder="确认密码">
@@ -94,6 +95,9 @@
 				<hr>
 			</div>
 			<script>
+				function refresh() {
+				    document.getElementById('img').src="${ctxPath}/CaptchaServlet?"+Math.random();
+				}
 				$(function() {
 				    $('#doc-my-tabs').tabs();
 				    $('#sub').click(function(){
@@ -119,9 +123,20 @@
 			    		$("form:first").submit();
 		    	    });
 				    $('#subb').click(function(){
+				    	$.ajax({
+							url:"${ctxPath}/register.do",
+							dataType:"JSON",
+							data:{yzm:$("input[name='yzm']").val()},
+							success:function(result){
+								alert(result);
+								var logindata = JSON.parse(result);
+								
+							}
+						});
 			    	    var pwd = $("input[name='passwdd']").val();
 			    	    var cpwd = $("input[name='passwdder']").val();
 			    		var name = $("input[name='telenum']").val();
+			    		var yzm = $("input[name='yzm']").val();
 				    	var reg=new RegExp(/^1[34578]\d{9}$/);
 			    		var pattern = new RegExp(/^[\w_-]{6,16}$/);
 			    		if(!reg.test(name)){
