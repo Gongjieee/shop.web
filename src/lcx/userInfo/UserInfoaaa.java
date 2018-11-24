@@ -1,6 +1,6 @@
 package lcx.userInfo;
 
-public class UserInfo {
+public class UserInfoaaa {
 	//关于地址的解释：
 	//地址序列：一个人的多个收货地址需要去 加一个特殊的数字去识别，否则无法使用
 	//默认收货地址：用0表示是默认收货地址，1表示不是默认收货地址

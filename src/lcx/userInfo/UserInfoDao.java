@@ -22,7 +22,7 @@ public class UserInfoDao {
 	 * @param userInfo
 	 * @return
 	 */
-	public List<UserInfo> ModifyInfoDao(UserInfo userInfo) {
+	public List<UserInfoaaa> ModifyInfoDao(UserInfoaaa userInfo) {
 		String sql = "update user_info set receipt_name ='"+userInfo.getReceiptName()+"',phonenumber = '"+userInfo.getPhoneNumber()+"',province='"+userInfo.getProvince()+"',city='"+userInfo.getCity()+"',county='"+userInfo.getCountry()+"',detail='"+userInfo.getDetail()+"' where user_id = '"+userInfo.getUserId()+"' and default_add="+userInfo.getDefaultAddres();
 		Connection conn = null;
 		Statement statement = null;
@@ -66,7 +66,7 @@ public class UserInfoDao {
 	 * @param userInfo
 	 * @return
 	 */
-	public boolean addInfoDao(UserInfo userInfo) {
+	public boolean addInfoDao(UserInfoaaa userInfo) {
 		String sql1 = "select default_add from user_info where user_id='"+userInfo.getUserId()+"'";
 		Connection conn = null;
 		Statement statement = null;
@@ -120,14 +120,14 @@ public class UserInfoDao {
 	 * @return
 	 */
 	@SuppressWarnings("null")
-	public List<UserInfo> searchUserInfoDao(String userId) {
+	public List<UserInfoaaa> searchUserInfoDao(String userId) {
 		String sql ="select * from user_info where user_id = '"+userId+"'";
 		Connection conn = null;
 		Statement statement = null;
 		ResultSet rs = null;
-		List<UserInfo> arrayList = null;
-		UserInfo userInfo = null;
-		arrayList = new ArrayList<UserInfo>();
+		List<UserInfoaaa> arrayList = null;
+		UserInfoaaa userInfo = null;
+		arrayList = new ArrayList<UserInfoaaa>();
 		try {
 			conn = DbUtil.getConn();
 			statement = conn.createStatement();

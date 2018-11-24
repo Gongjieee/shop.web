@@ -1,4 +1,8 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctxPath" value="${pageContext.request.contextPath}" ></c:set>
+<!DOCTYPE html PUBLIitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 
 	<head>
@@ -97,69 +101,8 @@
 							<div class="am-fl am-cf"><strong class="am-text-danger am-text-lg">地址管理</strong> / <small>Address&nbsp;list</small></div>
 						</div>
 						<hr/>
-						<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails">
+						<ul class="am-avg-sm-1 am-avg-md-3 am-thumbnails" id="showUserInfo">
 
-							<li class="user-addresslist defaultAddr">
-								<span class="new-option-r"><i class="am-icon-check-circle"></i>默认地址</span>
-								<p class="new-tit new-p-re">
-									<span class="new-txt">小叮当</span>
-									<span class="new-txt-rd2">159****1622</span>
-								</p>
-								<div class="new-mu_l2a new-p-re">
-									<p class="new-mu_l2cw">
-										<span class="title">地址：</span>
-										<span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span></p>
-								</div>
-								<div class="new-addr-btn">
-									<a href="#"><i class="am-icon-edit"></i>编辑</a>
-									<span class="new-addr-bar">|</span>
-									<a href="javascript:void(0);" onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
-								</div>
-							</li>
-
-							<li class="user-addresslist">
-								<span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
-								<p class="new-tit new-p-re">
-									<span class="new-txt">小叮当</span>
-									<span class="new-txt-rd2">159****1622</span>
-								</p>
-								<div class="new-mu_l2a new-p-re">
-									<p class="new-mu_l2cw">
-										<span class="title">地址：</span>
-										<span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span></p>
-								</div>
-								<div class="new-addr-btn">
-									<a href="#"><i class="am-icon-edit"></i>编辑</a>
-									<span class="new-addr-bar">|</span>
-									<a href="javascript:void(0);" onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
-								</div>
-							</li>
-							<li class="user-addresslist">
-								<span class="new-option-r"><i class="am-icon-check-circle"></i>设为默认</span>
-								<p class="new-tit new-p-re">
-									<span class="new-txt">小叮当</span>
-									<span class="new-txt-rd2">159****1622</span>
-								</p>
-								<div class="new-mu_l2a new-p-re">
-									<p class="new-mu_l2cw">
-										<span class="title">地址：</span>
-										<span class="province">湖北</span>省
-										<span class="city">武汉</span>市
-										<span class="dist">洪山</span>区
-										<span class="street">雄楚大道666号(中南财经政法大学)</span></p>
-								</div>
-								<div class="new-addr-btn">
-									<a href="#"><i class="am-icon-edit"></i>编辑</a>
-									<span class="new-addr-bar">|</span>
-									<a href="javascript:void(0);" onclick="delClick(this);"><i class="am-icon-trash"></i>删除</a>
-								</div>
-							</li>
 						</ul>
 						<div class="clear"></div>
 						<a class="new-abtn-type" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0}">添加新地址</a>
@@ -175,35 +118,33 @@
 								<hr/>
 
 								<div class="am-u-md-12 am-u-lg-8" style="margin-top: 20px;">
-									<form class="am-form am-form-horizontal">
-
+									<form class="am-form am-form-horizontal" id="form1">
 										<div class="am-form-group">
 											<label for="user-name" class="am-form-label">收货人</label>
 											<div class="am-form-content">
-												<input type="text" id="user-name" placeholder="收货人">
+												<input type="text" id="user-name" placeholder="收货人" name="receiptName">
 											</div>
 										</div>
-
 										<div class="am-form-group">
 											<label for="user-phone" class="am-form-label">手机号码</label>
 											<div class="am-form-content">
-												<input id="user-phone" placeholder="手机号必填" type="email">
+												<input id="user-phone" placeholder="手机号必填" type="email" name="phoneNumber">
 											</div>
 										</div>
 										<div class="am-form-group">
 											<label for="user-address" class="am-form-label">所在地</label>
 											<div class="am-form-content address">
-												<select data-am-selected>
-													<option value="a">浙江省</option>
-													<option value="b" selected>湖北省</option>
+												<select data-am-selected name="province">
+													<option value="浙江省">浙江省</option>
+													<option value="湖北省" selected>湖北省</option>
 												</select>
-												<select data-am-selected>
-													<option value="a">温州市</option>
-													<option value="b" selected>武汉市</option>
+												<select data-am-selected name="city">
+													<option value="温州市">温州市</option>
+													<option value="武汉市" selected>武汉市</option>
 												</select>
-												<select data-am-selected>
-													<option value="a">瑞安区</option>
-													<option value="b" selected>洪山区</option>
+												<select data-am-selected name="country">
+													<option value="瑞安区">瑞安区</option>
+													<option value="洪山区" selected>洪山区</option>
 												</select>
 											</div>
 										</div>
@@ -211,38 +152,120 @@
 										<div class="am-form-group">
 											<label for="user-intro" class="am-form-label">详细地址</label>
 											<div class="am-form-content">
-												<textarea class="" rows="3" id="user-intro" placeholder="输入详细地址"></textarea>
+												<textarea class="" rows="3" id="user-intro" name="detail" placeholder="输入详细地址"></textarea>
 												<small>100字以内写出你的详细地址...</small>
 											</div>
 										</div>
 
 										<div class="am-form-group">
 											<div class="am-u-sm-9 am-u-sm-push-3">
-												<a class="am-btn am-btn-danger">保存</a>
-												<a href="javascript: void(0)" class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a>
+												<a class="am-btn am-btn-danger submitform">保存</a>
+												<a  class="am-close am-btn am-btn-danger" data-am-modal-close>取消</a>
 											</div>
 										</div>
 									</form>
 								</div>
-
 							</div>
-
 						</div>
-
 					</div>
-
 					<script type="text/javascript">
+						$(document).ready(function(){
+								$.ajax({
+									type:"post",
+									url:"${ctxPath}/SearchServlet",
+									dataType:"JSON",
+									success:function(data){
+										$("#showUserInfo").html("<div></div>");
+										$("#showUserInfo").append("<li class='user-addresslist defaultAddr'>"+
+												"<span class='new-option-r'><i class='am-icon-check-circle'></i>默认地址</span>"+
+												"<p class='new-tit new-p-re'>"+
+												"<span class='new-txt'>"+this.receiptName+"</span>"+
+													"<span class='new-txt-rd2'>"+this.phoneNumber+"</span>"+
+												"</p><div class='new-mu_l2a new-p-re'>"+
+												"<p class='new-mu_l2cw'>"+
+												"<span class='title'>地址：</span><span class='province'>"+this.province+"</span>省"+
+															"<span class='city'>"+this.city+"</span>市"+
+															"<span class='dist'>"+this.coutry+"</span>"+
+															"<span class='street'>"+this.detail+"</span></p><input type='hidden'  class='defaultAddressValue' value ="+this.defaultAddres+">"+
+															"</div><div class='new-addr-btn'>"+
+														"<a href='#’><i class='am-icon-edit'></i>编辑</a>"+
+														"<span class='new-addr-bar'>|</span>"+
+														"<a class='delUserInfo'><i class='am-icon-trash'></i>删除</a></div></li>")
+									},
+									error : function() {
+					                    alert("异常！");
+					                }
+								});
+						});
 						$(document).ready(function() {							
 							$(".new-option-r").click(function() {
 								$(this).parent('.user-addresslist').addClass("defaultAddr").siblings().removeClass("defaultAddr");
 							});
-							
 							var $ww = $(window).width();
 							if($ww>640) {
 								$("#doc-modal-1").removeClass("am-modal am-modal-no-btn")
 							}
-							
-						})
+						});
+						$(".submitform").click(function(){
+							alert("====>11");
+							$.ajax({
+								type:"post",
+								data:$("#form1").serialize(),
+								url:"${ctxPath}/AddInfoServlet",
+								dataType:"JSON",
+								success:function(data){
+									$("#showUserInfo").html("<div></div>");
+									$("#showUserInfo").append("<li class='user-addresslist defaultAddr'>"+
+											"<span class='new-option-r'><i class='am-icon-check-circle'></i>默认地址</span>"+
+											"<p class='new-tit new-p-re'>"+
+											"<span class='new-txt'>"+this.receiptName+"</span>"+
+												"<span class='new-txt-rd2'>"+this.phoneNumber+"</span>"+
+											"</p><div class='new-mu_l2a new-p-re'>"+
+											"<p class='new-mu_l2cw'>"+
+											"<span class='title'>地址：</span><span class='province'>"+this.province+"</span>省"+
+												"<span class='city'>"+this.city+"</span>市"+
+												"<span class='dist'>"+this.coutry+"</span>"+
+												"<span class='street'>"+this.detail+"</span></p><input type='hidden'  class='defaultAddressValue' value ="+this.defaultAddres+">"+
+												"</div><div class='new-addr-btn'>"+
+											"<a href='#’><i class='am-icon-edit'></i>编辑</a>"+
+											"<span class='new-addr-bar'>|</span>"+
+											"<a class='delUserInfo'><i class='am-icon-trash'></i>删除</a></div></li>")
+								},
+								error : function() {
+				                    alert("异常！");
+				                }
+							});
+						});
+						$(".delUserInfo").click(function(){
+							$.ajax({
+								type:"post",
+								data:{defaultAddres : this.value},
+								url:"${ctxPath}/DelUserInfoSrevlet",
+								dataType:"JSON",
+								success:function(data){
+									alert("zcxc");
+									$("#showUserInfo").html("<div></div>");
+									$("#showUserInfo").append("<li class='user-addresslist defaultAddr'>"+
+											"<span class='new-option-r'><i class='am-icon-check-circle'></i>默认地址</span>"+
+											"<p class='new-tit new-p-re'>"+
+											"<span class='new-txt'>"+this.receiptName+"</span>"+
+												"<span class='new-txt-rd2'>"+this.phoneNumber+"</span>"+
+											"</p><div class='new-mu_l2a new-p-re'>"+
+											"<p class='new-mu_l2cw'>"+
+											"<span class='title'>地址：</span><span class='province'>"+this.province+"</span>省"+
+														"<span class='city'>"+this.city+"</span>市"+
+														"<span class='dist'>"+this.coutry+"</span>"+
+														"<span class='street'>"+this.detail+"</span></p><input type='hidden'  class='defaultAddressValue' value ="+this.defaultAddres+">"+
+														"</div><div class='new-addr-btn'>"+
+													"<a href='#’><i class='am-icon-edit'></i>编辑</a>"+
+													"<span class='new-addr-bar'>|</span>"+
+													"<a class='delUserInfo'><i class='am-icon-trash'></i>删除</a></div></li>")
+								},
+								error : function() {
+				                    alert("异常！");
+				                }
+							});
+						});
 					</script>
 
 					<div class="clear"></div>
