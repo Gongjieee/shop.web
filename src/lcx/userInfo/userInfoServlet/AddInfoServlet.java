@@ -29,7 +29,7 @@ public class AddInfoServlet extends HttpServlet{
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		UserInfoaaa userInfo = new UserInfoaaa();
-		userInfo.setUserId((String) request.getSession().getAttribute("userInfo"));
+		userInfo.setUserId((String) request.getSession().getAttribute("userid"));
 		userInfo.setProvince(request.getParameter("province"));
 		userInfo.setCity(request.getParameter("city"));
 		userInfo.setCountry(request.getParameter("country"));

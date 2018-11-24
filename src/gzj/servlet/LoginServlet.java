@@ -37,7 +37,7 @@ public class LoginServlet extends BaseServlet {
 			}
 		}else {
 			Shop sd = s.get(0);
-			req.getSession().setAttribute("", sd);
+			req.getSession().setAttribute("userid", sd.getUser_id());
 			resp.sendRedirect("");//传入的jsp页面自己搞，在这修改后告诉我让我把数据下载下来防止冲突，
 								  //注意判断到底是邮箱登陆还是手机号登陆，若为邮箱登陆手机号为null，手机号登陆邮箱为null
 		}

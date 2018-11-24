@@ -11,7 +11,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.google.gson.Gson;
 
-import commen.utils.FormUtil;
 import lcx.userInfo.UserInfoaaa;
 import lcx.userInfo.UserInfoservice;
 
@@ -29,7 +28,14 @@ public class ModifyUserInfoServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html;charset=UTF-8");
-		UserInfoaaa userInfo = (UserInfoaaa)FormUtil.formToBean(request, UserInfoaaa.class);
+		UserInfoaaa userInfo = new UserInfoaaa();
+		userInfo.setUserId((String) request.getSession().getAttribute("userid"));
+		userInfo.setProvince(request.getParameter("province"));
+		userInfo.setCity(request.getParameter("city"));
+		userInfo.setCountry(request.getParameter("country"));
+		userInfo.setDetail("detail");
+		userInfo.setDefaultAddressNum(1);
+		userInfo.setPhoneNumber(request.getParameter("phoneNumber"));
 		list  = new UserInfoservice().ModifyInfo(userInfo);
 		response.getWriter().write(new Gson().toJson(list));
 		response.getWriter().close();
