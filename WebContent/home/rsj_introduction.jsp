@@ -1,12 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctxPath" value="${pageContext.request.contextPath}" scope="session"></c:set>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-
+		<script type="text/javascript" src="js/jquery-3.3.1.js" ></script>
 		<title>商品页面</title>
 
 		<link href="../AmazeUI-2.4.2/assets/css/admin.css" rel="stylesheet" type="text/css" />
@@ -333,17 +335,15 @@
 							</li>
 							<li>
 								<div class="clearfix tb-btn tb-btn-basket theme-login">
-									<a id="LikBasket" title="加入购物车" href="#"><i></i>加入购物车</a>
+									<a id="LikBasket" title="加入购物车" href="${ctxPath }/joinShopCart?mn=addShopCart&goodsId=5ab16d04cc724324bece3a855c34e8cf&goodsCount=$('#text_box').val()"><i></i>加入购物车</a>
 								</div>
 							</li>
+
 						</div>
-
 					</div>
-
 					<div class="clear"></div>
-
 				</div>
-
+		
 				<!--优惠套装-->
 				<div class="match">
 					<div class="match-title">优惠套装</div>
