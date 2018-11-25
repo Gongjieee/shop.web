@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 
@@ -14,9 +16,59 @@
 		<link href="../css/infstyle.css" rel="stylesheet" type="text/css">
 		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
 		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>			
-		<script type="${pageContext.request.contextPath}/text/javascript" src="static/js/jquery-3.3.1.min.js"></script>
 	</head>
-
+<script type="text/javascript">
+window.onload=function(){
+var selects = document.getElementsByTagName("select");//通过标签名获取select对象
+var date = new Date();
+var nowYear = date.getFullYear();//获取当前的年
+for(var i=nowYear-100;i<=nowYear;i++){
+var optionYear = document.createElement("option");
+optionYear.innerHTML=i;
+optionYear.value=i;
+selects[0].appendChild(optionYear);
+}
+for(var i=1;i<=12;i++){
+var optionMonth = document.createElement("option");
+optionMonth.innerHTML=i;
+optionMonth.value=i;
+selects[1].appendChild(optionMonth);
+}
+getDays(selects[1].value,selects[0].value,selects);
+}
+// 获取某年某月存在多少天
+function getDaysInMonth(month,year){
+var days;
+if (month==1 || month==3 || month==5 || month==7 || month==8 || month==10 || month==12) {
+days=31;
+}else if (month==4 || month==6 || month==9 || month==11){
+days=30;
+}else{
+if ((year%4 == 0 && year%100 != 0) || (year%400 == 0)) {     // 判断是否为润二月
+days=29; 
+}else { 
+days=28; 
+}
+}
+return days;
+}
+function setDays(){
+var selects = document.getElementsByTagName("select");
+var year = selects[0].options[selects[0].selectedIndex].value;
+var month = selects[1].options[selects[1].selectedIndex].value;
+getDays(month,year,selects);
+}
+function getDays(month,year,selects){
+var days = getDaysInMonth(month,year);
+selects[2].options.length = 0;
+for(var i=1;i<=days;i++){
+var optionDay = document.createElement("option");
+optionDay.innerHTML=i;
+optionDay.value=i;
+selects[2].appendChild(optionDay);
+}
+}
+</script>
 	<body>
 		<!--头 -->
 		<header>
@@ -27,14 +79,12 @@
 						<ul class="message-l">
 							<div class="topMessage">
 								<div class="menu-hd">
-									<a href="#" target="_top" class="h">亲，请登录</a>
-									<a href="#" target="_top">免费注册</a>
 								</div>
 							</div>
 						</ul>
 						<ul class="message-r">
 							<div class="topMessage home">
-								<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+								<div class="menu-hd"><a href="http://localhost/shop.web/" target="_top" class="h">商城首页</a></div>
 							</div>
 							<div class="topMessage my-shangcheng">
 								<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
@@ -46,9 +96,7 @@
 								<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
 						</ul>
 						</div>
-
 						<!--悬浮搜索框-->
-
 						<div class="nav white">
 							<div class="logoBig">
 								<li><img src="../images/logobig.png" /></li>
@@ -116,109 +164,97 @@
 
 						<!--个人信息 -->
 						<div class="info-main">
-							<form class="am-form am-form-horizontal">
+<form class="am-form am-form-horizontal">
+			<div class="am-form-group">
+				<label for="user-name2" class="am-form-label">用户名</label>
+				<div class="am-form-content">
+					<input type="text" id="user-name2" placeholder="name">
+                                     <small>昵称长度不能超过10个汉字</small>
+				</div>
+			</div>
 
-								<div class="am-form-group">
-									<label for="user-name2" class="am-form-label">昵称</label>
-									<div class="am-form-content">
-										<input type="text" id="user-name2" placeholder="nickname">
-                                          <small>昵称长度不能超过40个汉字</small>
-									</div>
-								</div>
+			<div class="am-form-group">
+				<label for="user-name" class="am-form-label">银行卡号</label>
+				<div class="am-form-content">
+					<input type="text" id="user-name2" placeholder="BankCardNumber">
+                                    
+				</div>
+			</div>
 
-								<div class="am-form-group">
-									<label for="user-name" class="am-form-label">姓名</label>
-									<div class="am-form-content">
-										<input type="text" id="user-name2" placeholder="name">
-                                         
-									</div>
-								</div>
+			<div class="am-form-group">
+				<label class="am-form-label">性别</label>
+				<div class="am-form-content sex">
+					<label class="am-radio-inline">
+						<input type="radio" name="radio10" value="male" data-am-ucheck> 男
+					</label>
+					<label class="am-radio-inline">
+						<input type="radio" name="radio10" value="female" data-am-ucheck> 女
+					</label>
+					<label class="am-radio-inline">
+						<input type="radio" name="radio10" value="secret" data-am-ucheck> 保密
+					</label>
+				</div>
+			</div>
+	
+			<div class="am-form-group">
+				<label for="user-birth" class="am-form-label">生日</label>
+				<div class="am-form-content birth">
+				<div class="birth-select">
+					<select data-am-selected="{maxHeight: 170}">
+					</select>
+					<em>年</em>
+				</div>
+				<div class="birth-select2">
+					<select data-am-selected="{maxHeight: 170}">
+					</select>
+					<em>月</em></div>
+				<div class="birth-select2">
+					<select data-am-selected="{maxHeight: 170}">
+					</select>
+					<em>日</em></div>
+		</div>
+			</div>
+			<div class="am-form-group">
+				<label for="user-phone" class="am-form-label">电话</label>
+				<div class="am-form-content">
+					<input id="user-phone" placeholder="telephonenumber" type="tel">
 
-								<div class="am-form-group">
-									<label class="am-form-label">性别</label>
-									<div class="am-form-content sex">
-										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="male" data-am-ucheck> 男
-										</label>
-										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="female" data-am-ucheck> 女
-										</label>
-										<label class="am-radio-inline">
-											<input type="radio" name="radio10" value="secret" data-am-ucheck> 保密
-										</label>
-									</div>
-								</div>
+				</div>
+			</div>
+			<div class="am-form-group">
+				<label for="user-email" class="am-form-label">电子邮件</label>
+				<div class="am-form-content">
+					<input id="user-email" placeholder="Email" type="email">
 
-								<div class="am-form-group">
-									<label for="user-birth" class="am-form-label">生日</label>
-									<div class="am-form-content birth">
-										<div class="birth-select">
-											<select data-am-selected>
-												<option value="a">2015</option>
-												<option value="b">1987</option>
-											</select>
-											<em>年</em>
-										</div>
-										<div class="birth-select2">
-											<select data-am-selected>
-												<option value="a">12</option>
-												<option value="b">8</option>
-											</select>
-											<em>月</em></div>
-										<div class="birth-select2">
-											<select data-am-selected>
-												<option value="a">21</option>
-												<option value="b">23</option>
-											</select>
-											<em>日</em></div>
-									</div>
-							
-								</div>
-								<div class="am-form-group">
-									<label for="user-phone" class="am-form-label">电话</label>
-									<div class="am-form-content">
-										<input id="user-phone" placeholder="telephonenumber" type="tel">
+				</div>
+			</div>
+			<div class="am-form-group address">
+				<label for="user-address" class="am-form-label">收货地址</label>
+				<div class="am-form-content address">
+					<a href="address.html">
+						<p class="new-mu_l2cw">
+							<span class="province">湖北</span>省
+							<span class="city">武汉</span>市
+							<span class="dist">洪山</span>区
+							<span class="street">雄楚大道666号(中南财经政法大学)</span>
+							<span class="am-icon-angle-right"></span>
+						</p>
+					</a>
 
-									</div>
-								</div>
-								<div class="am-form-group">
-									<label for="user-email" class="am-form-label">电子邮件</label>
-									<div class="am-form-content">
-										<input id="user-email" placeholder="Email" type="email">
-
-									</div>
-								</div>
-								<div class="am-form-group address">
-									<label for="user-address" class="am-form-label">收货地址</label>
-									<div class="am-form-content address">
-										<a href="address.html">
-											<p class="new-mu_l2cw">
-												<span class="province">湖北</span>省
-												<span class="city">武汉</span>市
-												<span class="dist">洪山</span>区
-												<span class="street">雄楚大道666号(中南财经政法大学)</span>
-												<span class="am-icon-angle-right"></span>
-											</p>
-										</a>
-
-									</div>
-								</div>
-								<div class="am-form-group safety">
-									<label for="user-safety" class="am-form-label">账号安全</label>
-									<div class="am-form-content safety">
-										<a href="safety.html">
-
-											<span class="am-icon-angle-right"></span>
-
-										</a>
-
-									</div>
-								</div>
-								<div class="info-btn">
-									<div class="am-btn am-btn-danger">保存修改</div>
-								</div>
-
-							</form>
+				</div>
+			</div>
+			<div class="am-form-group safety">
+				<label for="user-safety" class="am-form-label">账号安全</label>
+				<div class="am-form-content safety">
+					<a href="safety.html">
+						<span class="am-icon-angle-right"></span>
+					</a>
+				</div>
+			</div>
+			<div class="info-btn">
+				<div class="am-btn am-btn-danger">保存修改</div>
+			</div>
+</form>
 						</div>
 
 					</div>
