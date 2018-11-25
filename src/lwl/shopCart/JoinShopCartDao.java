@@ -5,7 +5,7 @@ import java.util.List;
 import lwl.goodsItem.GoodsItem;
 import lwl.goodsItem.GoodsItemService;
 
-public class joinShopCartDao {
+public class JoinShopCartDao {
 	
 	private GoodsItemService goodsItemService=new GoodsItemService();
 	  

@@ -334,9 +334,14 @@
 								</div>
 							</li>
 							<li>
+							<form action="${ctxPath }/joinShopCart" method="post">
 								<div class="clearfix tb-btn tb-btn-basket theme-login">
-									<a id="LikBasket" title="加入购物车" href="${ctxPath }/joinShopCart?mn=addShopCart&goodsId=5ab16d04cc724324bece3a855c34e8cf&goodsCount=$('#text_box').val()"><i></i>加入购物车</a>
+									<input type="hidden" name="mn" value="addShopCart">
+									<input type="hidden" name="goodsId" value="5ab16d04cc724324bece3a855c34e8cf">
+									<input type="submit" name="" value="加入购物车">
 								</div>
+							</form>
+								
 							</li>
 
 						</div>

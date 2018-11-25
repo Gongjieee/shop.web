@@ -1,6 +1,8 @@
 package commen.utils;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 
 import javax.servlet.ServletException;
@@ -12,19 +14,27 @@ public class BaseServlet extends HttpServlet {
 	
 	private static final long serialVersionUID = 1L;
 
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
 
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	public void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		String methodName = request.getParameter("mn");
-		System.out.println(methodName);
+		System.out.println("»ñÈ¡µ½µÄ·½·¨"+methodName);
 		try {
 			Method method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
 			method.invoke(this, request, response);
-		} catch (Exception e) {
-			throw new RuntimeException("ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		} catch (NoSuchMethodException e) {
+			e.printStackTrace();
+		} catch (SecurityException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (InvocationTargetException e) {
+			e.printStackTrace();
 		}
 	}
 }

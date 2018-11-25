@@ -19,14 +19,14 @@ import lwl.goodsItem.GoodsItem;
 import lwl.goodsItem.GoodsItemService;
 
 @WebServlet("/joinShopCart")
-public class joinShopCartServlet extends BaseServlet {
+public class JoinShopCartServlet extends BaseServlet {
 	private static final long serialVersionUID = 1L;
      
 	GoodsItemService orderService=new GoodsItemService();
 	
 	GoodsDao goodsDao=new GoodsDao();
 
-	private joinShopCartDao showGoodsDao=new joinShopCartDao();
+	private JoinShopCartDao showGoodsDao=new JoinShopCartDao();
 	
 	//生成购物车清单
 	public void addShopCart(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
