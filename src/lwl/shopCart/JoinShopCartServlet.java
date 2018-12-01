@@ -5,18 +5,15 @@ import java.util.LinkedList;
 import java.util.List;
 
 import javax.servlet.ServletException;
-import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebServlet;
-import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.google.gson.Gson;
 
 import commen.utils.BaseServlet;
 import lwl.goods.GoodsDao;
 import lwl.goodsItem.GoodsItem;
 import lwl.goodsItem.GoodsItemService;
+
 
 @WebServlet("/joinShopCart")
 public class JoinShopCartServlet extends BaseServlet {

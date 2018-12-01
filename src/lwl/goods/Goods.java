@@ -94,6 +94,10 @@ public class Goods {
 	public void setGoodsColor(String goodsColor) {
 		this.goodsColor = goodsColor;
 	}
+	
+	public static void main(String[] args) {
+		System.out.println("aaaa");
+	}
 
 	
 }

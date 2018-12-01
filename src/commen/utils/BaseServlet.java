@@ -21,7 +21,6 @@ public class BaseServlet extends HttpServlet {
 	public void doPost(HttpServletRequest request, HttpServletResponse response) throws UnsupportedEncodingException {
 		request.setCharacterEncoding("UTF-8");
 		String methodName = request.getParameter("mn");
-		System.out.println("获取到的方法"+methodName);
 		try {
 			Method method = this.getClass().getMethod(methodName, HttpServletRequest.class, HttpServletResponse.class);
 			method.invoke(this, request, response);

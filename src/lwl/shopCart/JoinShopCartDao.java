@@ -2,8 +2,8 @@ package lwl.shopCart;
 
 import java.util.List;
 
-import lwl.goodsItem.GoodsItem;
-import lwl.goodsItem.GoodsItemService;
+import lwl.goods.*;
+import lwl.goodsItem.*;
 
 public class JoinShopCartDao {
 	

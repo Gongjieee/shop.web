@@ -1,12 +1,24 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%
-	String ctxPath = request.getContextPath();
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="ctxPath" value="${pageContext.request.contextPath}" scope="session"></c:set>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 	<head>
+		<style type="text/css">
+				#LikBasket{
+					    width: 98px;
+		    			border: 1px solid #F03726;
+		    			background-color: #F03726;
+		    			color: #FFF;
+		    			float: left;
+		    			height: 30px;
+		    			line-height: 30px;
+		    			text-align: center;
+		    			cursor: pointer;
+				}
+			</style>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -24,7 +36,20 @@
 		<script type="text/javascript" src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 		<script type="text/javascript" src="../js/jquery.imagezoom.min.js"></script>
 		<script type="text/javascript" src="../js/jquery.flexslider.js"></script>
+		<script type="text/javascript" src="js/jquery-3.3.1.js" ></script>
 		<script type="text/javascript" src="../js/list.js"></script>
+		
+		<script type="text/javascript">
+		$(function(){
+			$("#add").click(function(){
+				$("input[name='goodsCount']").val($("input[name='shangpinshuliang']").val());
+			});
+			$("#min").click(function(){
+				$("input[name='goodsCount']").val($("input[name='shangpinshuliang']").val());
+			});
+		});
+		
+		</script>
 
 	</head>
 
@@ -43,13 +68,13 @@
 			</ul>
 			<ul class="message-r">
 				<div class="topMessage home">
-					<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+					<div class="menu-hd"><a href="../index.jsp" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
-					<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+					<div class="menu-hd"><a id="mc-menu-hd" href="shopCart.jsp" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h"></strong></a></div>
 				</div>
 				<div class="topMessage favorite">
 					<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
@@ -270,7 +295,7 @@
 														<div class="cart-title number">数量</div>
 														<dd>
 															<input id="min" class="am-btn am-btn-default" name="" type="button" value="-" />
-															<input id="text_box" name="" type="text" value="1" style="width:30px;" />
+															<input id="text_box" name="shangpinshuliang" type="text" value="1" style="width:30px;" />
 															<input id="add" class="am-btn am-btn-default" name="" type="button" value="+" />
 															<span id="Stock" class="tb-hidden">库存<span class="stock">1000</span>件</span>
 														</dd>
@@ -334,9 +359,14 @@
 								</div>
 							</li>
 							<li>
-								<div class="clearfix tb-btn tb-btn-basket theme-login">
-									<a id="LikBasket" title="加入购物车" href="<%=ctxPath %>/"><i></i>加入购物车</a>
-								</div>
+								<form action="${ctxPath }/joinShopCart" method="post">
+								
+									<input type="hidden" name="mn" value="addShopCart">
+									<input type="hidden" name="goodsId" value="859a57f97950409c8116aac9d93a8d07">
+									<input type="hidden" name="goodsCount" value="1">
+									<input id="LikBasket" type="submit" name="" value="加入购物车">
+
+							</form>
 							</li>
 						</div>
 

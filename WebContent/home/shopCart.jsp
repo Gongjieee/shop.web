@@ -15,8 +15,24 @@
 		<link href="${ctxPath }/basic/css/demo.css" rel="stylesheet" type="text/css" />
 		<link href="${ctxPath }/css/cartstyle.css" rel="stylesheet" type="text/css" />
 		<link href="${ctxPath }/css/optstyle.css" rel="stylesheet" type="text/css" />
-
+		<script type="text/javascript" src="js/jquery-3.3.1.js" ></script>
 		<script type="text/javascript" src="${ctxPath }/js/jquery.js"></script>
+		<script type="text/javascript">
+		var count=0;
+		var price=0;
+		var prices=0;
+		var
+		$(function(){
+			
+			$("#add").click(function(){
+				count=$("input[name='goodsCount']").val();
+			});
+			$("#min").click(function(){
+				$("input[name='goodsCount']").val();
+			});
+		});
+		
+		</script>
 
 	</head>
 
@@ -27,20 +43,20 @@
 			<ul class="message-l">
 				<div class="topMessage">
 					<div class="menu-hd">
-						<a href="#" target="_top" class="h">亲，请登录</a>
-						<a href="#" target="_top">免费注册</a>
+						<a href="login.jsp" target="_top" class="h">亲，请登录</a>
+						<a href="register.jsp" target="_top">免费注册</a>
 					</div>
 				</div>
 			</ul>
 			<ul class="message-r">
 				<div class="topMessage home">
-					<div class="menu-hd"><a href="#" target="_top" class="h">商城首页</a></div>
+					<div class="menu-hd"><a href="../index.jsp" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
 					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
-					<div class="menu-hd"><a id="mc-menu-hd" href="#" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
+					<div class="menu-hd"><a id="mc-menu-hd" href="home/shopCart.jsp" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
 				</div>
 				<div class="topMessage favorite">
 					<div class="menu-hd"><a href="#" target="_top"><i class="am-icon-heart am-icon-fw"></i><span>收藏夹</span></a></div>
@@ -109,7 +125,7 @@
 												<li class="td td-item">
 													<div class="item-pic">
 														<a href="#" target="_blank"class="J_MakePoint" data-point="tbcart.8.12">
-															<img src="${GoodsItem.picturePath } " class="itempic J_ItemImg"></a>
+															<img src="${ctxPath }/images/${GoodsItem.picturePath}" class="itempic J_ItemImg"></a>
 													</div>
 													<div class="item-info">
 														<div class="item-basic-info">
@@ -131,7 +147,7 @@
 																<em class="price-original">${GoodsItem.pastGoodsPrice }</em>
 															</div>
 															<div class="price-line">
-																<em class="J_Price price-now" tabindex="0">${GoodsItem.nowGoodsPrice }</em>
+																<em class="J_Price price-now" id="'Em'+${GoodsItem.goodsId }">${GoodsItem.nowGoodsPrice }</em>
 															</div>
 														</div>
 													</div>
@@ -141,7 +157,7 @@
 														<div class="item-amount ">
 															<div class="sl">
 																<input class="min am-btn" name="" type="button" value="-" />
-																<input class="text_box" name="goodsCount" type="text" value="3" style="width:30px;" />
+																<input class="text_box" name="goodsCount" type="text" value="${GoodsItem.goodsCount }" style="width:30px;" />
 																<input class="add am-btn" name="" type="button" value="+" />
 															</div>
 														</div>
@@ -153,10 +169,17 @@
 													</div>
 												</li>
 												<li class="td td-op">
-													<div class="td-inner">
-														<a title="移入收藏夹" class="btn-fav" href="#">移入收藏夹</a>
-														<a href="joinShopCart?mn=delGoods&&goodsId=${GoodsItem.goodsId }"class="delete">删除</a>
-													</div>
+													<form action="${ctxPath }/joinShopCart" method="post">
+													
+														<div class="td-inner">
+														
+															<input type="hidden" name="mn" value="delGoods">
+															<input type="hidden" name="goodsId" value="${GoodsItem.goodsId }">
+															<input type="submit" name="" value="删除">
+															
+														</div>
+														
+													</form>
 												</li>
 											</ul>
 										</div>
