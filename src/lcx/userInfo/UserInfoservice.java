@@ -41,11 +41,11 @@ public class UserInfoservice {
 	}
 	
 	public List<UserInfoaaa> searchUserInfoService(String userId) {
-		if((!"".equals(userId))&&userId!=null) {
+		//if((!"".equals(userId))&&userId!=null) {
 			return new UserInfoDao().searchUserInfoDao(userId);
-		}else {
-			System.err.println("searchUserInfoService没有接收到数据！！！！！");
-			return null;
-		}
+		//}else {
+		//	System.out.println("searchUserInfoService没有接收到数据！！！！！");
+		//	return null;
+		//}
 	}
 }

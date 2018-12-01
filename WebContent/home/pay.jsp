@@ -72,9 +72,6 @@
 				<div class="paycont">
 					<div class="address">
 						<h3>确认收货地址 </h3>
-						<div class="control">
-							<div class="tc-btn createAddr theme-login am-btn am-btn-danger">使用新地址请到个人中心设置</div>
-						</div>
 						<div class="clear"></div>
 <!--@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ 存放地址js@@@@@@@@@@@@@@@@@@@@ -->
 						<ul id="showUserInfo">
@@ -146,9 +143,9 @@
 									<div id="holyshit269" class="submitOrder">
 										<form action="AddOrderItemServlet" method="post">
 											<div class="go-btn-wrap">
-												<input type="hidden" name="goodsID" value="${#goodsId}">
-												<input type="hidden" name="goodsNum" value="${#goodsnum}">
-												<input type="hidden" name="defaultAddressValue" value="${#defaultAddressValue }">
+												<input type="hidden" name="goodsID" value="${goodsId}">
+												<input type="hidden" name="goodsNum" value="${goodsnum}">
+												<input type="hidden" name="defaultAddressValue" value="${defaultAddressValue }">
 												<button id="J_Go" class="btn-go" >提交订单</button>
 											</div>
 										</form>
@@ -211,7 +208,8 @@
 												"</div><div class='new-addr-btn'>"+
 											"<a href='#’><i class='am-icon-edit'></i>编辑</a>"+
 											"<span class='new-addr-bar'>|</span>"+
-											"<a class='delUserInfo'><i class='am-icon-trash'></i>删除</a></div></li>")}})
+											"<a class='delUserInfo'><i class='am-icon-trash'></i>删除</a></div></li>");});
+						}
 					});
 				});
 				$(document).ready(function(){

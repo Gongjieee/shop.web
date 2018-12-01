@@ -30,10 +30,11 @@ public class AddInfoServlet extends HttpServlet{
 		request.setCharacterEncoding("UTF-8");
 		UserInfoaaa userInfo = new UserInfoaaa();
 		userInfo.setUserId((String) request.getSession().getAttribute("userid"));
+		userInfo.setReceiptName(request.getParameter("receiptName"));
 		userInfo.setProvince(request.getParameter("province"));
 		userInfo.setCity(request.getParameter("city"));
 		userInfo.setCountry(request.getParameter("country"));
-		userInfo.setDetail("detail");
+		userInfo.setDetail(request.getParameter("detail"));
 		userInfo.setDefaultAddressNum(1);
 		userInfo.setPhoneNumber(request.getParameter("phoneNumber"));
 		
