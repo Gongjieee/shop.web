@@ -186,31 +186,35 @@
 
 			<div class="clear"></div>
 			<script type="text/javascript">
-				$(document).ready(function(){
-					$.ajax({
-						type:"post",
-						url:"${ctxPath}/SearchServlet",
-						dataType:"JSON",
-						success:function(data){
-							$("#showUserInfo").html("<div></div>");
-							$.each(data, function(){
-								$("#showUserInfo").append("<div class='per-border'></div><li class='user-addresslist defaultAddr'>"+
-									"<span class='new-option-r'><i class='am-icon-check-circle'></i>默认地址</span>"+
-									"<p class='new-tit new-p-re'>"+
-									"<span class='new-txt'>"+this.receiptName+"</span>"+
-										"<span class='new-txt-rd2'>"+this.phoneNumber+"</span>"+
-									"</p><div class='new-mu_l2a new-p-re'>"+
-									"<p class='new-mu_l2cw'>"+
-									"<span class='title'>地址：</span><span class='province'>"+this.province+"</span>省"+
-												"<span class='city'>"+this.city+"</span>市"+
-												"<span class='dist'>"+this.coutry+"</span>"+
-												"<span class='street'>"+this.detail+"</span></p><input type='hidden'  id='defaultAddressValue' value ="+this.defaultAddres+">"+
-												"</div><div class='new-addr-btn'>"+
-											"<a href='#’><i class='am-icon-edit'></i>编辑</a>"+
-											"<span class='new-addr-bar'>|</span>"+
-											"<a class='delUserInfo'><i class='am-icon-trash'></i>删除</a></div></li>");});
-						}
-					});
+					$(document).ready(function(){
+						$.ajax({
+							type:"post",
+							url:"${ctxPath}/SearchServlet",
+							dataType:"JSON",
+							success:function(data){
+								$("#showUserInfo").html("<div></div>");
+								$.each(data,function(){
+									$("#showUserInfo").append("<li class='user-addresslist defaultAddr'>"+
+											"<span class='new-option-r'><i class='am-icon-check-circle'></i>默认地址</span>"+
+											"<p class='new-tit new-p-re'>"+
+											"<span class='new-txt'>"+this.receiptName+"</span>"+
+												"<span class='new-txt-rd2'>"+this.phoneNumber+"</span>"+
+											"</p><div class='new-mu_l2a new-p-re'>"+
+											"<p class='new-mu_l2cw'>"+
+											"<span class='title'>地址：</span><span class='province'>"+this.province+"</span>"+
+														"<span class='city'>"+this.city+"</span>"+
+														"<span class='dist'>"+this.country+"</span>"+
+														"<span class='street'>"+this.detail+"</span></p><input type='hidden'  class='defaultAddressValue' value ="+this.defaultAddres+">"+
+														"</div><div class='new-addr-btn'>"+
+													"<a href='#’><i class='am-icon-edit'></i>编辑</a>"+
+													"<span class='new-addr-bar'>|</span>"+
+													"<a class='delUserInfo'><i class='am-icon-trash'></i>删除</a></div></li>")
+								})
+							},
+							error : function() {
+			                    alert("异常！");
+			                }
+						});
 				});
 				$(document).ready(function(){
 					$.ajax({
