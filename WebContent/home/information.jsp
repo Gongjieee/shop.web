@@ -15,7 +15,8 @@
 		<link href="../css/personal.css" rel="stylesheet" type="text/css">
 		<link href="../css/infstyle.css" rel="stylesheet" type="text/css">
 		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js"></script>
-		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>			
+		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>	
+		<script type="text/javascript" src="js/jquery-3.3.1.js" ></script>		
 	</head>
 	
 	<script type="text/javascript">

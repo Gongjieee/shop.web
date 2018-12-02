@@ -23,8 +23,7 @@
 		var prices=0;
 		var
 		$(function(){
-			if(${user.user_id!=null})
-	       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
+			
 			$("#add").click(function(){
 				count=$("input[name='goodsCount']").val();
 			});
@@ -34,7 +33,13 @@
 		});
 		
 		</script>
-
+		<script>
+			$(function(){
+				if(${user.user_id!=null})
+		       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
+				
+			});
+		</script>
 	</head>
 
 	<body>
@@ -54,7 +59,7 @@
 					<div class="menu-hd"><a href="../index.jsp" target="_top" class="h">商城首页</a></div>
 				</div>
 				<div class="topMessage my-shangcheng">
-					<div class="menu-hd MyShangcheng"><a href="#" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
+					<div class="menu-hd MyShangcheng"><a href="information.jsp" target="_top"><i class="am-icon-user am-icon-fw"></i>个人中心</a></div>
 				</div>
 				<div class="topMessage mini-cart">
 					<div class="menu-hd"><a id="mc-menu-hd" href="home/shopCart.jsp" target="_top"><i class="am-icon-shopping-cart  am-icon-fw"></i><span>购物车</span><strong id="J_MiniCartNum" class="h">0</strong></a></div>
@@ -216,7 +221,7 @@
 							<strong class="price">¥<em id="J_Total">0.00</em></strong>
 						</div>
 						<div class="btn-area">
-							<a href="pay.html" id="J_Go" class="submit-btn submit-btn-disabled">
+							<a href="pay.jsp" id="J_Go" class="submit-btn submit-btn-disabled">
 								<span>结&nbsp;算</span></a>
 						</div>
 					</div>
