@@ -36,7 +36,7 @@ public class RegisterServlet extends BaseServlet {
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		rd.addMail(shop);
 		req.getSession().setAttribute("userid", shop.getUser_id());
-		resp.sendRedirect("");//锟斤拷锟斤拷锟絡sp页锟斤拷锟皆硷拷锟姐，锟斤拷锟斤拷锟睫改猴拷锟斤拷锟斤拷锟斤拷锟斤拷野锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟街癸拷锟酵伙拷锟�
+		resp.sendRedirect("index.jsp");//锟斤拷锟斤拷锟絡sp页锟斤拷锟皆硷拷锟姐，锟斤拷锟斤拷锟睫改猴拷锟斤拷锟斤拷锟斤拷锟斤拷野锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟街癸拷锟酵伙拷锟�
 							  //注锟斤拷锟叫断碉拷锟斤拷锟斤拷锟斤拷锟斤拷注锟结还锟斤拷锟街伙拷锟斤拷注锟结，锟斤拷为锟斤拷锟斤拷注锟斤拷锟街伙拷锟斤拷为null锟斤拷锟街伙拷锟斤拷注锟斤拷锟斤拷锟斤拷为null
 	}
 	
@@ -58,7 +58,7 @@ public class RegisterServlet extends BaseServlet {
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		rd.addPhone(shop);
 		req.getSession().setAttribute("", shop);
-		resp.sendRedirect("");//锟斤拷锟斤拷锟絡sp页锟斤拷锟皆硷拷锟姐，锟斤拷锟斤拷锟睫改猴拷锟斤拷锟斤拷锟斤拷锟斤拷野锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟街癸拷锟酵伙拷锟�
+		resp.sendRedirect("index.jsp");//锟斤拷锟斤拷锟絡sp页锟斤拷锟皆硷拷锟姐，锟斤拷锟斤拷锟睫改猴拷锟斤拷锟斤拷锟斤拷锟斤拷野锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟街癸拷锟酵伙拷锟�
 							  //注锟斤拷锟叫断碉拷锟斤拷锟斤拷锟斤拷锟斤拷注锟结还锟斤拷锟街伙拷锟斤拷注锟结，锟斤拷为锟斤拷锟斤拷注锟斤拷锟街伙拷锟斤拷为null锟斤拷锟街伙拷锟斤拷注锟斤拷锟斤拷锟斤拷为null
 	}
 }
