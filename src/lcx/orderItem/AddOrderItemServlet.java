@@ -21,9 +21,11 @@ public class AddOrderItemServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		request.setCharacterEncoding("utf-8");
+		request.setCharacterEncoding("UTF-8");
+		response.setContentType("text/html;charset=UTF-8");
 		String goodsId = request.getParameter("goodsID");
 		String goodsNum = request.getParameter("goodsNum");
+		System.out.println(goodsNum);
 		int goodsNumber = Integer.parseInt(goodsNum);
 		String defaultAddressValue = request.getParameter("defaultAddressValue");
 		int defaultAddress = Integer.parseInt(defaultAddressValue);

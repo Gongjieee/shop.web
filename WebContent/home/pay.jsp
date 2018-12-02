@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<<c:set  var="ctxPath" value="${pageContext.request.contextPath } " scope="session"></c:set>
+<c:set var="ctxPath" value="${pageContext.request.contextPath }" scope="session"></c:set>
 <!DOCTYPE html PUBLIitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -12,23 +12,15 @@
 		<title>结算页面</title>
 
 		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css" />
-
+		<link href="../AmazeUI-2.4.2/assets/css/amazeui.css" rel="stylesheet" type="text/css">
 		<link href="../basic/css/demo.css" rel="stylesheet" type="text/css" />
 		<link href="../css/cartstyle.css" rel="stylesheet" type="text/css" />
-
+		<link href="../css/personal.css" rel="stylesheet" type="text/css">
 		<link href="../css/jsstyle.css" rel="stylesheet" type="text/css" />
-
-		<script type="text/javascript" src="../js/address.js"></script>
-
+		<link href="../css/addstyle.css" rel="stylesheet" type="text/css">
+		<script src="../AmazeUI-2.4.2/assets/js/jquery.min.js" type="text/javascript"></script>
+		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 	</head>
-	
-	<script type="text/javascript">
-		$(function(){
-			if(${user.user_id!=null})
-	       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
-		});
-		
-		</script>
 
 	<body> 
 
@@ -88,7 +80,6 @@
 						<div class="clear"></div>
 					</div>
 					<div class="clear"></div>
-<!-- %%%%%%%%%%%%%%%%%%%%%%支付方式%%%%%%%%%%%%%%%%%5 -->
 					<div class="logistics">
 						<ul class="pay-list">
 							<li class="pay card"><img src="../images/wangyin.jpg" />银联<span></span></li>
@@ -149,7 +140,7 @@
 									</div>
 
 									<div id="holyshit269" class="submitOrder">
-										<form action="AddOrderItemServlet" method="post">
+										<form action="${ctxPath}/AddOrderItemServlet" method="post">
 											<div class="go-btn-wrap">
 												<input type="hidden" name="goodsID" value="${goodsId}">
 												<input type="hidden" name="goodsNum" value="${goodsnum}">
@@ -260,7 +251,8 @@
 							+"<div class='td-inner'>"
 									+"<span class='phone-title'>配送方式</span>"
 									+"<div class='pay-logis'>快递<b class='sys_item_freprice'>10</b>元</div></div></li></ul>")
-							})});
+							});
+						}
 				});
 			</script>
 	</body>
