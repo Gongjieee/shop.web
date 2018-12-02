@@ -20,6 +20,14 @@
 		<script src="../AmazeUI-2.4.2/assets/js/amazeui.js"></script>
 
 	</head>
+	
+	<script type="text/javascript">
+		$(function(){
+			if(${user.user_id!=null})
+	       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
+		});
+		
+		</script>
 
 	<body>
 		<!--头 -->
@@ -30,7 +38,7 @@
 					<div class="am-container header">
 						<ul class="message-l">
 							<div class="topMessage">
-								<div class="menu-hd">
+								<div class="menu-hd" id="hide">
 									<a href="#" target="_top" class="h">亲，请登录</a>
 									<a href="#" target="_top">免费注册</a>
 								</div>

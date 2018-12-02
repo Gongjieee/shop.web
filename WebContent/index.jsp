@@ -15,7 +15,7 @@
 			<div class="am-container header">
 				<ul class="message-l">
 					<div class="topMessage">
-						<div class="menu-hd">
+						<div class="menu-hd" id="hide">
 							<a href="home/login.jsp" target="_top" class="h">亲，请登录</a>
 							<a href="home/register.jsp" target="_top">免费注册</a>
 						</div>
@@ -549,9 +549,11 @@
 		</div>
 		<script type="text/javascript">
 			$(document).ready(function() {
-		$("li").click(function() {		
+				$("li").click(function() {		
 		     	$(this).addClass("selected").siblings().removeClass("selected");
 	       })
+	       if(${user.user_id!=null})
+	       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
 		})
 		</script>
 		<div class="clear"></div>

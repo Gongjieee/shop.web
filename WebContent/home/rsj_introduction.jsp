@@ -3,6 +3,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="ctxPath" value="${pageContext.request.contextPath}" scope="session"></c:set>
 
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -42,6 +43,8 @@
 		
 		<script type="text/javascript">
 		$(function(){
+	       if(${user.user_id!=null})
+	       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
 			$("#add").click(function(){
 				$("input[name='goodsCount']").val($("input[name='shangpinshuliang']").val());
 			});
@@ -59,9 +62,9 @@
 
 		<!--顶部导航条 -->
 		<div class="am-container header">
-			<ul class="message-l">
+			<ul class="message-l" >
 				<div class="topMessage">
-					<div class="menu-hd">
+					<div class="menu-hd" id="hide">
 						<a href="login.jsp" target="_top" class="h">亲，请登录</a>
 						<a href="register.jsp" target="_top">免费注册</a>
 					</div>

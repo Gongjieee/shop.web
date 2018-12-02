@@ -54,6 +54,12 @@ public class RegisterAndLoginDao {
 		List<Shop> s = null;
 		try {
 			s = qr.query(sql, new BeanListHandler<Shop>(Shop.class), shop.getPassword(),shop.getMail());
+			if(s.size()!=0) {
+				Shop ss=s.get(0);
+				ss.setLoginPerson(0);
+				s.clear();
+				s.add(ss);
+			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -61,6 +67,10 @@ public class RegisterAndLoginDao {
 			sql = "select * from user where password=? and phone=?";
 			try {
 				s = qr.query(sql, new BeanListHandler<Shop>(Shop.class), shop.getPassword(),shop.getPhone());
+				Shop ss=s.get(0);
+				ss.setLoginPerson(1);
+				s.clear();
+				s.add(ss);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}

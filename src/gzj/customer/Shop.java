@@ -8,6 +8,16 @@ public class Shop {
 	
 	private String phone;
 	
+	private int loginPerson;
+	
+	public int getLoginPerson() {
+		return loginPerson;
+	}
+
+	public void setLoginPerson(int loginPerson) {
+		this.loginPerson = loginPerson;
+	}
+
 	public String getPhone() {
 		return phone;
 	}

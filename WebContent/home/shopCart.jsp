@@ -23,7 +23,8 @@
 		var prices=0;
 		var
 		$(function(){
-			
+			if(${user.user_id!=null})
+	       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
 			$("#add").click(function(){
 				count=$("input[name='goodsCount']").val();
 			});
@@ -42,7 +43,7 @@
 		<div class="am-container header">
 			<ul class="message-l">
 				<div class="topMessage">
-					<div class="menu-hd">
+					<div class="menu-hd" id="hide">
 						<a href="login.jsp" target="_top" class="h">亲，请登录</a>
 						<a href="register.jsp" target="_top">免费注册</a>
 					</div>

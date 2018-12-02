@@ -30,14 +30,19 @@ public class RegisterServlet extends BaseServlet {
 		String id = UUID.randomUUID().toString();
 		String miPass = MD5Util.getInstance().getMD5(req.getParameter("passwd")).toString();
 		Shop shop = new Shop();
-		shop.setMail(req.getParameter("mail"));
+		shop.setMail(req.getParameter("mail"));System.out.println(123);
 		shop.setPassword(miPass);
 		shop.setUser_id(id);
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		rd.addMail(shop);
-		req.getSession().setAttribute("userid", shop.getUser_id());
+		Shop sd=new Shop();
+		sd.setLoginPerson(0);
+		sd.setMail(req.getParameter("mail"));
+		sd.setUser_id(id);
+		req.getSession().setAttribute("user", sd);
 		resp.sendRedirect("index.jsp");//锟斤拷锟斤拷锟絡sp页锟斤拷锟皆硷拷锟姐，锟斤拷锟斤拷锟睫改猴拷锟斤拷锟斤拷锟斤拷锟斤拷野锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟街癸拷锟酵伙拷锟�
 							  //注锟斤拷锟叫断碉拷锟斤拷锟斤拷锟斤拷锟斤拷注锟结还锟斤拷锟街伙拷锟斤拷注锟结，锟斤拷为锟斤拷锟斤拷注锟斤拷锟街伙拷锟斤拷为null锟斤拷锟街伙拷锟斤拷注锟斤拷锟斤拷锟斤拷为null
+		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 	
 	/**
@@ -57,8 +62,13 @@ public class RegisterServlet extends BaseServlet {
 		shop.setUser_id(id);
 		RegisterAndLoginDao rd = new RegisterAndLoginDao();
 		rd.addPhone(shop);
-		req.getSession().setAttribute("", shop);
+		Shop sd=new Shop();
+		sd.setLoginPerson(0);
+		sd.setMail(req.getParameter("telenum"));
+		sd.setUser_id(id);
+		req.getSession().setAttribute("user", sd);
 		resp.sendRedirect("index.jsp");//锟斤拷锟斤拷锟絡sp页锟斤拷锟皆硷拷锟姐，锟斤拷锟斤拷锟睫改猴拷锟斤拷锟斤拷锟斤拷锟斤拷野锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟斤拷锟街癸拷锟酵伙拷锟�
 							  //注锟斤拷锟叫断碉拷锟斤拷锟斤拷锟斤拷锟斤拷注锟结还锟斤拷锟街伙拷锟斤拷注锟结，锟斤拷为锟斤拷锟斤拷注锟斤拷锟街伙拷锟斤拷为null锟斤拷锟街伙拷锟斤拷注锟斤拷锟斤拷锟斤拷为null
+		req.getRequestDispatcher("index.jsp").forward(req, resp);
 	}
 }

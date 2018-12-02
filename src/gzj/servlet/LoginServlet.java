@@ -22,7 +22,6 @@ public class LoginServlet extends BaseServlet {
 		req.setCharacterEncoding("utf-8");
 		String miPass = MD5Util.getInstance().getMD5(req.getParameter("pass")).toString();
 		Shop shop = new Shop();
-		System.out.println(123123);
 		shop.setMail(req.getParameter("name"));
 		shop.setPhone(req.getParameter("name"));
 		shop.setPassword(miPass);
@@ -37,9 +36,10 @@ public class LoginServlet extends BaseServlet {
 			}
 		}else {
 			Shop sd = s.get(0);
-			req.getSession().setAttribute("userid", sd.getUser_id());
+			req.getSession().setAttribute("user", sd);
 			resp.sendRedirect("index.jsp");//传入的jsp页面自己搞，在这修改后告诉我让我把数据下载下来防止冲突，
 								  //注意判断到底是邮箱登陆还是手机号登陆，若为邮箱登陆手机号为null，手机号登陆邮箱为null
+			req.getRequestDispatcher("index.jsp").forward(req, resp);
 		}
 	}
 }

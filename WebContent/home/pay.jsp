@@ -21,6 +21,14 @@
 		<script type="text/javascript" src="../js/address.js"></script>
 
 	</head>
+	
+	<script type="text/javascript">
+		$(function(){
+			if(${user.user_id!=null})
+	       		$("#hide").html("欢迎登陆:   ${ user.loginPerson==0?user.mail:user.phone}")
+		});
+		
+		</script>
 
 	<body> 
 
